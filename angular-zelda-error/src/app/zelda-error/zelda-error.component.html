@@ -56,7 +56,8 @@
     <div class='footer'>
       <input title="issueTitle"
              [placeholder]="labels.formPlaceholder"
-             ([value])="issueTitle"
+             [value]="issueTitle"
+             (change)="onChangeTitle($event.target.value);"
              [disabled]="issueSending"/>
       <div>
         <button class="request bg-warn {{issueSending ? 'disabled' : ''}}"

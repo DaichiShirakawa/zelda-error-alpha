@@ -71,6 +71,10 @@ export class ZeldaErrorComponent implements OnInit {
     this.voted[issue.id] = true;
   }
 
+  onChangeTitle(issueTitle: string) {
+    this.issueTitle = issueTitle;
+  }
+
   async onAddIssue(type: ZeldaIssueType | string) {
     const title = this.issueTitle.trim();
     if (title.length <= 0) {
