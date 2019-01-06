@@ -1,5 +1,5 @@
 # What is ZELDA_ERROR
-![admin-issues](assets/readme-common.png)
+<img src="/DaichiShirakawa/zelda-error-alpha/raw/master/assets/readme-common.png" alt="admin-issues" style="max-width:300px;object-fit:cover;">
 なんかキャッチーな紹介文をいずれ書く
 
 ## このリポジトリについて
