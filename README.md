@@ -1,58 +1,56 @@
-# zelda-error-alpha
-
-## What is ZELDA_ERROR
+# What is ZELDA_ERROR
 なんかキャッチーな紹介文をいずれ書く
 
 ## このリポジトリについて
-各フレームワーク用のZELDA_ERRORを、それぞれのサンプルプロジェクトとともに格納しています。  
-すべてのフレームワークで、zelda-error/common/以下のソースは共通なので、多重メンテしてます。  
-うまいことnpmモジュール化するにはどうしたらいいかわかんないの
-
-
-- angular-zelda-error (view未実装)
-- react-zelda-error
-- react-native-zelda-error (作ってるけどサンプルプロジェクトがまだ)
-- vue-zelda-error
-
+各フレームワーク用のZELDA_ERRORを、それぞれのサンプルプロジェクトとともに格納しています。 
 サンプルプロジェクトの実行方法は各ディレクトリのREADME.mdを参照してください。
 
+- angular-zelda-error
+- react-zelda-error
+- react-native-zelda-error (作ってはあるけどサンプルプロジェクトがまだ)
+- vue-zelda-error
+ 
+すべてのフレームワークで zelda-error/common/ 以下は同一ソースで動作しています。  
+*[HELP ME!!]* zelda-error/common/ 以下のソースを1箇所に置きつつフレームワークごとにnpmモジュール化したい
+
 ## How To ZELDA_ERROR
-全フレームワーク共通の使い方
-
-### ZELDA_ERROR コンポーネントのPropsの説明
+### Props
 - situation
-  - issueの管理単位です。situationが切り替わるとissuesがリロードされます。
-  - サンプルでは、vue-routerのrouteが切り替わった時にsituationを更新しています。
+  - issueの管理単位。situationが切り替わるとissuesリロードイベントが発火する
 - locale
-  - settings.localeLabelsから表示する言語を選択します。
-  - 将来的に時刻系の何かをサポートする際にも参照する・・・かも
+  - settings.localeLabelsから表示する言語を指定。デフォルトはen
 - showTicketLink
-  - issue一覧にticketへのリンクを貼るかどうか
+  - issueからGitLabなどのticketへのリンクを貼るか
 - settings
-  - DBへのintegration等の挙動を注入
-  - zelda-error-property-types.ts を読んでね
-  - my-zelda-implementations.ts にミニマム実装が書かれています
-    - GitLabへの投稿と、Slackへの通知は実際に動いています
+  - アプリ固有の挙動(DBへのintegration等)を注入
+  - 詳しくは zelda-error-property-types.ts
+  - my-zelda-implementations.ts にミニマム実装がある
+    - GitLabへの投稿と、Slackへの通知は実際に動いている
+    - そこ書いてある感じで、他のserviceへの連携も増やしていきたい
 
-### settings prop の変更
-my-zelda-implementations.tsを書き換えればいろんなシステムに連携できます。  
-連携ロジックは自前で書いてください。
+### my-zelda-implementations.ts
+ここを書き換えればいろんなシステムに連携できます。  
+基本、連携ロジックは自前で書いてもらうスタイル。
 
-でもせっかくなので、 common/zelda-error-sample-integrations/ 以下にある
+でも、 common/zelda-error-sample-integrations/ 以下にある
 - ZeldaErrorTicketGitLab
 - ZeldaErrorNotificationSlack
 
-等のバリエーションを増やす形で作っていただけるとそのまま再利用可能な形で公開できそうな予感がします。
+等のバリエーションを増やす形で作るとそのまま再利用可能な形で公開できそうな予感。
 
 ## Futures
-- AngularTS/JS へのview対応
+- ReactNative 版も公開
+- AngularJS(1.x) 版の開発
+  - ts使えないってことはけっこう辛そう
 - zelda-error-sample-integrations の充実
   - GitHub
   - JIRA
   - Trello
-- ticketがcloseされたらZeldaIssueの状態も変更
-  - GitLabでupdateイベント→GCP Functionでupdateする流れはできてるけど、リポジトリにうまく組み込めるだろうか。。。
+- (GitLab等で)ticketがcloseされたらZeldaIssueの状態も変更
+  - GitLabでupdate hooking → GCPに置いたFunctionでupdateする流れはできてるけど、このリポジトリにどうやって置こうか。。。サンプル設定/実装としてReadmeでも書くか?
 - PatchNote 自動生成
-  - これも現状、メッセージ生成してslackに自動投稿するツールはあるけど、どうやってリポジトリに組み込もう。。。
+  - これも現状、メッセージ生成してslackに自動投稿するツールはあるけど、どうやってリポジトリに置こう。。。
+- ZELDA_ERROR adminツール
+  - issueの一覧とか統計が見られるやつ。これも今とりあえず自前で作ってるけど、うまいことリポジトリに(ry
 - ガジェットからステータス等変更
-  - adminモードみたいなの実装して、管理者だとステータス変更できるみたいなやつ
+  - adminモードみたいなの実装して、管理者でログインするとissueのステータス変更できるみたいなやつ
