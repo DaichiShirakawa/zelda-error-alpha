@@ -1,5 +1,5 @@
 # What is ZELDA_ERROR
-![admin-issues](assets/readme-common.png)
+![admin-issues](assets/readme-common.png =400x)
 なんかキャッチーな紹介文をいずれ書く
 
 ## このリポジトリについて
