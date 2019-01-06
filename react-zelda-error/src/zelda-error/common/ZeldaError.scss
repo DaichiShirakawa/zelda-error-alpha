@@ -1,0 +1,203 @@
+$color-bg-info: #68E;
+$color-bg-success: #6A6;
+$color-bg-warn: #EC5;
+$color-bg-error: #E64;
+$color-font-warn: #FA5;
+$color-font-error: #E22;
+
+.bg-info {
+  background-color: $color-bg-info;
+  transition: background-color 0.1s ease-in-out;
+  &:not(.disabled):hover {
+    background-color: darken($color-bg-info, 10%);
+    transition: background-color 0.1s ease-in-out;
+  }
+}
+
+.bg-success {
+  background-color: $color-bg-success;
+  transition: background-color 0.1s ease-in-out;
+  &:not(.disabled):hover {
+    background-color: darken($color-bg-success, 10%);
+    transition: background-color 0.1s ease-in-out;
+  }
+}
+
+.bg-warn {
+  background-color: $color-bg-warn;
+  transition: background-color 0.1s ease-in-out;
+  &:not(.disabled):hover {
+    background-color: darken($color-bg-warn, 10%);
+    transition: background-color 0.1s ease-in-out;
+  }
+}
+
+.bg-error {
+  background-color: $color-bg-error;
+  transition: background-color 0.1s ease-in-out;
+  &:not(.disabled):hover {
+    background-color: darken($color-bg-error, 10%);
+    transition: background-color 0.1s ease-in-out;
+  }
+}
+
+.zelda-error {
+  position: absolute;
+  font-family: sans-serif;
+}
+
+.invisible-background {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.0);
+}
+
+.zelda-button {
+  z-index: 1002;
+  position: fixed;
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    position: absolute;
+    height: 32px;
+    width: 32px;
+    top: -0;
+  }
+  span {
+    color: white;
+    position: absolute;
+    top: 24px;
+  }
+}
+
+.zelda-panel {
+  z-index: 1001;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border: 1px #AAA solid;
+  border-radius: 24px;
+  background-color: #FFF;
+  box-sizing: border-box;
+
+  transition: all 0.2s ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+  &.open {
+    transition: all 0.2s ease-in-out;
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .header {
+    flex: 0 0 24px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    span {
+      flex: 0 0 auto;
+      font-size: 1.2rem;
+    }
+    .hide-button {
+      position: absolute;
+      top: 4px;
+      right: 32px;
+      width: 6rem;
+      height: 40px;
+      border-radius: 20px 0 0 20px;
+      cursor: pointer;
+      opacity: 0.5;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+
+      font-size: 12px;
+      color: black;
+      img {
+        height: 16px;
+        width: 16px;
+      }
+    }
+  }
+
+  .loading {
+
+  }
+
+  .issues {
+    flex: 1 1 auto;
+    overflow-y: scroll;
+    margin: 8px 0;
+    .issue {
+      margin: 8px 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      .button {
+        height: 24px;
+        width: 56px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        cursor: pointer;
+        &.disabled {
+          opacity: 0.4;
+        }
+        &.vote {
+          font-size: 17px;
+        }
+      }
+      .title {
+        font-size: 13px;
+        padding-left: 8px;
+        a {
+          color: #6688EE;
+        }
+      }
+    }
+  }
+
+  .footer {
+    flex: 0 0 56px;
+    width: 100%;
+    input {
+      width: 100%;
+      background-color: white;
+      font-size: 16px;
+      padding: 4px;
+      border: 1px solid #707070;
+      box-sizing: border-box;
+    }
+    .request {
+      flex: 1;
+      padding: 4px;
+      align-items: center;
+      width: 50%;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .error {
+      flex: 1;
+      padding: 4px;
+      align-items: center;
+      width: 50%;
+      cursor: pointer;
+      font-size: 14px;
+    }
+  }
+
+}

@@ -1,0 +1,28 @@
+{
+  "name": "react-scss",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/react-loadable": "^5.4.3",
+    "@types/react-router-dom": "^4.3.1",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-loadable": "^5.5.0",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts-scss-ts": "2.17.1"
+  },
+  "scripts": {
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.11",
+    "@types/node": "^10.12.18",
+    "@types/react": "^16.7.18",
+    "@types/react-dom": "^16.0.11",
+    "typescript": "^3.2.2"
+  }
+}
