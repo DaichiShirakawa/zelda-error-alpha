@@ -1,5 +1,5 @@
 # What is ZELDA_ERROR
-![admin-issues](vue-zelda-error/assets/readme-vue.png)
+![admin-issues](assets/readme-common.png)
 なんかキャッチーな紹介文をいずれ書く
 
 ## このリポジトリについて
