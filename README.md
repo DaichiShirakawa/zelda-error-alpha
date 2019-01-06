@@ -54,3 +54,6 @@
   - issueの一覧とか統計が見られるやつ。これも今とりあえず自前で作ってるけど、うまいことリポジトリに(ry
 - ガジェットからステータス等変更
   - adminモードみたいなの実装して、管理者でログインするとissueのステータス変更できるみたいなやつ
+
+## LICENCE
+This software is released under the MIT License, see LICENSE.txt.
