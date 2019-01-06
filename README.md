@@ -55,5 +55,11 @@
 - ガジェットからステータス等変更
   - adminモードみたいなの実装して、管理者でログインするとissueのステータス変更できるみたいなやつ
 
+## adminツール
+こんなん作ってる。
+![admin-issues](assets/admin-issues.png)
+![admin-situations](assets/admin-situations.png)
+![admin-analysis](assets/admin-analysis.png)
+
 ## LICENCE
 This software is released under the MIT License, see LICENSE.txt.
