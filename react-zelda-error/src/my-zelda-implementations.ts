@@ -33,10 +33,10 @@ export const MyZeldaIssueExtension: ZeldaIssueExtension = {
 };
 
 export const MyZeldaTicketIntegration: ZeldaErrorTicketIntegration
-  = ZeldaErrorTicketGitLab('zelda-error%2Fzelda-error-vue', 'JrdcLxLcuSYB_8Hns8QC');
+  = ZeldaErrorTicketGitLab('your%2Fproject', 'YOUR_TOKEN');
 
 export const MyZeldaNotificationIntegration: ZeldaErrorNotificationIntegration
-  = ZeldaErrorNotificationSlack('https://hooks.slack.com/services/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');
+  = ZeldaErrorNotificationSlack('https://hooks.slack.com/services/DUMMY/DUMMY/DUMMY');
 
 export const MyZeldaDBIntegration: ZeldaErrorDBIntegration
   = ZeldaErrorDBMock();
