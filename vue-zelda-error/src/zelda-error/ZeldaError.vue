@@ -60,7 +60,7 @@ import {ZeldaIssueStatus} from "./types/zelda-error-types";
                :value="issueTitle"
                @change="onChangeTitle"
                :disabled="issueSending"/>
-        <div :style="{flexDirection: 'row', width: '100%'}">
+        <div>
           <button class="request bg-warn"
                   :class="[issueSending ? 'disabled' : '']"
                   :disabled="issueSending"

@@ -1,0 +1,75 @@
+<div class='zelda-error' *ngIf="!hideEternally">
+  <div class='invisible-background'
+       (click)="onToggleZelda()"
+       *ngIf="open"></div>
+
+  <div class="zelda-button bg-{{iconBackground}}"
+       (click)="onToggleZelda()"
+       [style.top]="(settings.styles.zeldaButtonTop || 24) + 'px'"
+       [style.right]="(settings.styles.zeldaButtonRight || 24) + 'px'">
+    <img src="assets/zelda-error/triangle.png"/>
+    <span>
+      {{openIssueLength}}
+    </span>
+  </div>
+
+  <div class="zelda-panel"
+       [class.open]="open"
+       [style.top]="(settings.styles.zeldaButtonTop || 24) + 'px'"
+       [style.right]="(settings.styles.zeldaButtonRight || 24) + 'px'"
+       [style.width]="(settings.styles.panelWidth || 400) + 'px'"
+       [style.height]="(settings.styles.panelHeight || 400) + 'px'">
+
+    <div class='header'
+         [style.width]="(settings.styles.panelWidth - 20) + 'px'">
+      <span>[{{situation}}]</span>
+      <div class='hide-button bg-info'
+           (click)="onHideEternally().then()">
+        {{labels.hideButtonPrefix}}
+        <img src="assets/zelda-error/triangle.png"/>
+        {{labels.hideButtonSuffix}}
+      </div>
+    </div>
+
+    <h3 class='loading' *ngIf="loading">Loading...</h3>
+
+    <div class='issues' *ngIf="!loading">
+      <div class="issue {{(button.issue.status === 'open') ? 'open' : 'closed'}}"
+           *ngFor="let button of issueButtons">
+        <div class="button"
+             [ngClass]="button.classes"
+             (click)="onVote(button.issue).then()">
+          {{button.label}}
+        </div>
+        <span class='title'>
+            <a *ngIf="showTicketLink && button.issue.ticket != null && button.issue.ticket.url != null; else nolink"
+               [href]="button.issue.ticket.url"
+               target="_blank">#{{button.issue.ticket.id}}</a>
+            <ng-template #nolink>
+              <span>#{{button.issue.ticket ? button.issue.ticket.id : '???'}}</span>
+            </ng-template>
+            {{' ' + button.issue.title}}
+          </span>
+      </div>
+    </div>
+
+    <div class='footer'>
+      <input title="issueTitle"
+             [placeholder]="labels.formPlaceholder"
+             ([value])="issueTitle"
+             [disabled]="issueSending"/>
+      <div>
+        <button class="request bg-warn {{issueSending ? 'disabled' : ''}}"
+                [disabled]="issueSending"
+                (click)="onAddIssue('request').then();">
+          <span>{{labels.registerRequest}}</span>
+        </button>
+        <button class="error bg-error {{issueSending ? 'disabled' : ''}}"
+                [disabled]="issueSending"
+                (click)="onAddIssue('error').then();">
+          <span>{{labels.registerError}}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
